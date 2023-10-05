@@ -8,12 +8,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
+import ru.natal1a_chuklina.simple_db_service.dto.CommandInputDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Command(mixinStandardHelpOptions = true)
 @Slf4j
 public class DBInteractionCommand implements Runnable {
+    private final List<CommandResultListener> listeners = new ArrayList<>();
     @Option(names = {"-t", "--type"}, description = "Operation type", required = true, converter = OperationTypeConverter.class)
     private OperationType operation;
 
@@ -29,15 +32,38 @@ public class DBInteractionCommand implements Runnable {
     @Override
     public void run() {
         if (isVerbose) {
-            LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
-            List<Logger> loggerList = loggerContext.getLoggerList();
-            loggerList.forEach(logger -> logger.setLevel(Level.INFO));
+            changeLoggingLevel(Level.INFO);
         }
 
-        log.info("All works");
-        log.info("Operation type: " + operation);
+        log.info("Command processing.");
+        log.info("Operation type: " + operation.getName());
         log.info("Input file name: " + inputFile);
         log.info("Output file name: " + outputFile);
         log.info("Is verbose: " + isVerbose);
+
+        notifyListeners();
+    }
+
+    private void changeLoggingLevel(Level level) {
+        LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+        List<Logger> loggerList = loggerContext.getLoggerList();
+        loggerList.forEach(logger -> logger.setLevel(level));
+    }
+
+    public void addListener(CommandResultListener listener) {
+        if (listener != null) {
+            listeners.add(listener);
+        }
+    }
+
+    public void removeListener(CommandResultListener listener) {
+        if (listener != null) {
+            listeners.remove(listener);
+        }
+    }
+
+    private void notifyListeners() {
+        CommandInputDto inputDto = new CommandInputDto(operation, inputFile, outputFile);
+        listeners.forEach(listener -> listener.update(inputDto));
     }
 }
