@@ -1,0 +1,46 @@
+{
+  "criteria": [
+    {
+      "lastName": "Иванов"
+    },
+    {
+      "lastName": "Богданов"
+    },
+    {
+      "productName": "Отмычка (3 ед.)",
+      "minTimes": 3
+    },
+    {
+      "productName": "Отмычка (3 ед.)",
+      "minTimes": 4
+    },
+    {
+      "productName": "Отмычка (3 ед.)",
+      "minTimes": 5
+    },
+    {
+      "minExpenses": 430.5,
+      "maxExpenses": 212495.7
+    },
+    {
+      "minExpenses": 300000,
+      "maxExpenses": 400000
+    },
+    {
+      "badCustomers": 3
+    },
+    {
+      "badCustomers": 13
+    },
+    {
+      "lastName": "Иванов",
+      "firstName": "Иван"
+    },
+    {
+      "badCustomers": "three"
+    },
+    {
+      "badCustomers": null
+    }
+  ]
+}
