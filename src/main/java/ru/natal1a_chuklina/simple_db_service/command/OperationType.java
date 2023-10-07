@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public enum OperationType {
-    SEARCH(Constants.SEARCH_OPERATION_TYPE),
-    STATISTICS(Constants.STAT_OPERATION_TYPE);
+    SEARCH(Constants.SEARCH_TYPE),
+    STATISTICS(Constants.STAT_TYPE);
     private final String name;
 
     OperationType(String name) {

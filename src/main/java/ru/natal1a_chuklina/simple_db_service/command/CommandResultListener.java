@@ -1,7 +1,7 @@
 package ru.natal1a_chuklina.simple_db_service.command;
 
-import ru.natal1a_chuklina.simple_db_service.dto.CommandInputDto;
+import ru.natal1a_chuklina.simple_db_service.dto.CommandInput;
 
 public interface CommandResultListener {
-    void update(CommandInputDto inputDto);
+    void update(CommandInput inputDto);
 }

@@ -1,4 +1,4 @@
-package ru.natal1a_chuklina.simple_db_service.dto;
+package ru.natal1a_chuklina.simple_db_service.exception;
 
 public class JsonParseException extends RuntimeException {
     public JsonParseException() {

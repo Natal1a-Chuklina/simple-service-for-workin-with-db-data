@@ -9,11 +9,13 @@ import lombok.*;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class DBConfigurationDto {
+public class DBConfiguration {
     @JsonProperty("dbUrl")
     private String url;
+
     @JsonProperty("dbUsername")
     private String username;
+
     @JsonProperty("dbPassword")
     private String password;
 }

@@ -11,6 +11,6 @@ import java.util.Map;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class SearchInputDto {
+public class SearchInput {
     private List<Map<String, String>> criteria;
 }

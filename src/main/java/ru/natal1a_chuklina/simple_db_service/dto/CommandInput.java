@@ -10,7 +10,7 @@ import ru.natal1a_chuklina.simple_db_service.command.OperationType;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class CommandInputDto {
+public class CommandInput {
     private final OperationType operation;
 
     private final String inputFile;

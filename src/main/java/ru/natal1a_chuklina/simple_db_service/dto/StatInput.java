@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Setter
 @EqualsAndHashCode
 @ToString
-public class StatInputDto {
+public class StatInput {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate startDate;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

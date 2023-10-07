@@ -8,9 +8,9 @@ public class OperationTypeConverter implements ITypeConverter<OperationType> {
     @Override
     public OperationType convert(String value) {
         switch (value) {
-            case Constants.SEARCH_OPERATION_TYPE:
+            case Constants.SEARCH_TYPE:
                 return OperationType.SEARCH;
-            case Constants.STAT_OPERATION_TYPE:
+            case Constants.STAT_TYPE:
                 return OperationType.STATISTICS;
             default:
                 throw new IllegalArgumentException(String.format("Operation %s doesn't exist. Existing operations: %s.",

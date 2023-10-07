@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
-import ru.natal1a_chuklina.simple_db_service.dto.CommandInputDto;
+import ru.natal1a_chuklina.simple_db_service.dto.CommandInput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +63,7 @@ public class DBInteractionCommand implements Runnable {
     }
 
     private void notifyListeners() {
-        CommandInputDto inputDto = new CommandInputDto(operation, inputFile, outputFile);
+        CommandInput inputDto = new CommandInput(operation, inputFile, outputFile);
         listeners.forEach(listener -> listener.update(inputDto));
     }
 }
